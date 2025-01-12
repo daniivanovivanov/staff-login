@@ -1,11 +1,9 @@
 -- Este código debería estar en el archivo cargado desde la URL
 
-function playMusic(soundId)
+function playMusic(soundId, pitch, loopEnabled)
     local Workspace = game.Workspace
 
-    local pitch = 1
-    local volume = 1000000
-    local loopEnabled = false
+    local volume = 1000000  -- Esto puedes dejarlo constante o pasarlo como argumento si lo deseas
 
     for _, v in pairs(Workspace:GetDescendants()) do
         if v:IsA("RemoteEvent") and v.Name == "AC6_FE_Sounds" then
