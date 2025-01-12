@@ -1,6 +1,16 @@
-loadstring(game:HttpGet('https://raw.githubusercontent.com/daniivanovivanov/staff-login/refs/heads/main/motov'))()
+-- Este código debería estar en el archivo cargado desde la URL
 
--- Ahora llamamos a la función que se encuentra en el script cargado, pasando el musicId como argumento
+function playMusic(soundId)
+    local Workspace = game.Workspace
 
-local musicId = "rbxassetid://6729922069"  -- Sustituye este ID por el que desees
-playMusic(musicId)
+    local pitch = 1
+    local volume = 1000000
+    local loopEnabled = false
+
+    for _, v in pairs(Workspace:GetDescendants()) do
+        if v:IsA("RemoteEvent") and v.Name == "AC6_FE_Sounds" then
+            v:FireServer("newSound", "Toefap", Workspace, soundId, pitch, volume, loopEnabled)
+            v:FireServer("playSound", "Toefap")
+        end
+    end
+end
