@@ -1,0 +1,14 @@
+local Workspace = game.Workspace
+
+local soundId = "rbxassetid://640822891"
+local pitch = 1
+local volume = 1000000
+local loopEnabled = false
+
+for _, v in pairs(Workspace:GetDescendants()) do
+    if v:IsA("RemoteEvent") and v.Name == "AC6_FE_Sounds" then
+        v:FireServer("newSound", "Toefap", Workspace, soundId, pitch, volume, loopEnabled)
+
+v:FireServer("playSound", "Toefap")
+    end
+end
